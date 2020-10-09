@@ -1,3 +1,3 @@
-# Probablistic Machine Learning
+# Probabilistic Machine Learning
 
 A short course on probabilistic machine learning using PyMC3.
