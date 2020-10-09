@@ -6,7 +6,7 @@ The notebooks for the course may be run locally on your own machine by installin
 
 ### Installing Python 3.8 and PyMC3
 
-To install Python 3.8 on your own machine, along with the necessary libraries, use the installer available at [Anacoina](https://www.anaconda.com/products/individual). Then follow the instructions [here](https://docs.pymc.io) to install PyMC3.
+To install Python 3.8 on your own machine, along with the necessary libraries, use the installer available at [Anaconda](https://www.anaconda.com/products/individual). Then follow the instructions [here](https://docs.pymc.io) to install PyMC3.
 
 ### Using Google Colab
 
