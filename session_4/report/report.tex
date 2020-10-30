@@ -1,0 +1,83 @@
+\documentclass[10pt, twocolumn, a4paper]{article}
+
+\input{format.tex}  
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+
+%----------------------------------------------------------------------------------------
+
+\title{Report Example}
+
+\author{
+    \authorstyle{Alex Rogers, 29th October 2020}
+}
+
+%----------------------------------------------------------------------------------------
+
+\date{}
+
+\begin{document}
+
+\maketitle  
+
+\setcounter{page}{1}
+
+\thispagestyle{firstpage}  
+
+%----------------------------------------------------------------------------------------
+
+\section{Overview}
+
+This document provides a template for you to use to write your reports and also an example of the description of a model for the Millikan oil drop experiment. The modelling approaches are described further in the two course books \citep{bayesian_hackers, bayesian_analysis}.
+
+\section{Millikan's Oil Drop Experiment}
+
+The experimental set-up of Millikan's original oil drop experiment is shown in Figure \ref{experiment}.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[width=0.475\textwidth]{./figures/experiment.jpg}
+\caption{Millikan's oil drop experiment.}
+\label{experiment}
+\end{center}
+\end{figure}
+
+\subsection{Model Description}
+
+We assume that we have $N$ measurements of the charge on $N$ individual oil drops. We denote this measurement as $c_i$ for $i \in \{0, \dots, N\}$. We assume that each measurement is affected by independent Gaussian noise such that:
+\begin{equation}
+c_i \sim \text{Normal}(n_i \times e, \sigma^2)
+\end{equation}
+where $n_i$ is the number of additional electrons on each oil drop and $e$ is the charge on an electron. We do not directly observe $n_i$ and thus we assign it a Poisson prior given by:
+\begin{equation}
+n_i \sim 1 + \text{Poisson}(1)
+\end{equation}
+Similarly, we model $\sigma$ and $e$ with appropriate priors such that:
+\begin{align}
+\sigma & \sim \text{Exponential}(0.1) \\
+e & \sim \text{Exponential}(1) 
+\end{align}
+
+\subsection{Solving the Model}
+
+We solve the model using PyMC.\footnote{\url{https://docs.pymc.io}} Figure \ref{results} shows the posterior probability distribution for the charge on the electron and the accuracy of the experimental measurements.
+
+\begin{figure}[tp]
+\begin{center}
+\includegraphics[width=0.475\textwidth]{./figures/results.pdf}
+\caption{Posterior probability density functions for the charge on the electron ($e$) and the measurement error ($\sigma$).}
+\label{results}
+\end{center}
+\end{figure}
+
+\printbibliography[title={References}] 
+
+\end{document}
+
+
+
+
+
